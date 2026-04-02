@@ -1,9 +1,9 @@
-/* =============================================
+/* ============================================================
    MUNDO MUSICAL — styles.css
-   CSS3 | Responsive | Mobile-first
-   ============================================= */
+   Responsive, semántico, Bootstrap 5 complementado
+   ============================================================ */
 
-/* ── Reset & Base ── */
+/* ── Reset / Base ── */
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
@@ -11,40 +11,29 @@ body {
     font-family: 'Segoe UI', sans-serif;
     min-height: 100vh;
     margin: 0;
-    overflow-x: hidden;
 }
-
-/* ── Canvas de notas musicales (fondo) ── */
-#music-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;   /* nunca bloquea clics */
-    z-index: 0;
-}
-
-/* Todo el contenido por encima del canvas */
-header, main, footer.site-footer, .modal { position: relative; z-index: 1; }
 
 /* ── Navbar ── */
 .navbar { background-color: #ff69b4; }
 .navbar-brand,
 .nav-link { color: white !important; font-weight: bold; }
-.nav-link:hover { opacity: 0.85; }
+.nav-link:hover { opacity: 0.8; }
 
-/* ── Header (sección cards) ── */
-.header { text-align: center; padding: 60px 20px; color: #333; }
-.header h1 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: bold; }
-.header p  { font-size: clamp(1rem, 3vw, 1.5rem); }
+/* ── Header de sección Cards ── */
+.header {
+    text-align: center;
+    padding: 60px 20px 30px;
+    color: #333;
+}
+.header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: bold; margin-bottom: 8px; }
+.header p  { font-size: clamp(1rem, 2.5vw, 1.5rem); color: #555; }
 
-/* ── Cards iguales ── */
+/* ── Cards ── */
 .card {
     border-radius: 12px;
     border: 2px solid #ffd966;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    transition: transform .3s;
     cursor: pointer;
     height: 100%;
     display: flex;
@@ -61,7 +50,6 @@ header, main, footer.site-footer, .modal { position: relative; z-index: 1; }
     border-radius: 10px 10px 0 0;
     flex-shrink: 0;
 }
-
 .card .card-body {
     flex: 1;
     display: flex;
@@ -69,10 +57,9 @@ header, main, footer.site-footer, .modal { position: relative; z-index: 1; }
     justify-content: space-between;
 }
 
-/* ── Secciones de página ── */
+/* ── Secciones (visibilidad controlada por JS) ── */
 .seccion { display: none; }
 .seccion.activa { display: block; }
-#sec-cards { display: block; }
 
 /* ── Sección Inicio ── */
 #sec-inicio {
@@ -85,13 +72,14 @@ header, main, footer.site-footer, .modal { position: relative; z-index: 1; }
 }
 #sec-inicio.activa { display: flex; flex-direction: column; }
 
-.inicio-emoji { font-size: clamp(48px, 10vw, 72px); animation: bounce 1.8s infinite; }
-
+.inicio-emoji {
+    font-size: clamp(52px, 10vw, 72px);
+    animation: bounce 1.8s infinite;
+}
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50%       { transform: translateY(-14px); }
 }
-
 .inicio-titulo {
     font-size: clamp(1.6rem, 4vw, 2.4rem);
     font-weight: bold;
@@ -123,10 +111,10 @@ header, main, footer.site-footer, .modal { position: relative; z-index: 1; }
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s, opacity 0.2s;
-    box-shadow: 0 4px 15px rgba(255,105,180,0.4);
+    transition: transform .2s, opacity .2s;
+    box-shadow: 0 4px 15px rgba(255,105,180,.4);
 }
-.inicio-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+.inicio-btn:hover { transform: translateY(-2px); opacity: .9; }
 
 /* ── Sección Artistas — carrusel ── */
 #sec-artistas { display: none; padding: 40px 20px; }
@@ -134,7 +122,7 @@ header, main, footer.site-footer, .modal { position: relative; z-index: 1; }
 
 .artistas-titulo {
     text-align: center;
-    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
     font-weight: bold;
     color: #d63384;
     margin-bottom: 8px;
@@ -146,10 +134,11 @@ header, main, footer.site-footer, .modal { position: relative; z-index: 1; }
     font-size: 1rem;
 }
 
+/* Carrusel */
 .recorrido-wrap { position: relative; overflow: hidden; }
 .recorrido-track {
     display: flex;
-    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    transition: transform .5s cubic-bezier(.4,0,.2,1);
 }
 .recorrido-slide {
     min-width: 100%;
@@ -160,7 +149,7 @@ header, main, footer.site-footer, .modal { position: relative; z-index: 1; }
     background: white;
     border-radius: 20px;
     border: 2px solid #ffd6e7;
-    box-shadow: 0 6px 24px rgba(255,105,180,0.15);
+    box-shadow: 0 6px 24px rgba(255,105,180,.15);
     overflow: hidden;
     max-width: 480px;
     margin: 0 auto;
@@ -172,21 +161,17 @@ header, main, footer.site-footer, .modal { position: relative; z-index: 1; }
     object-position: top;
 }
 .recorrido-body { padding: 1.5rem; }
-.recorrido-nombre { font-size: clamp(1.3rem, 4vw, 1.6rem); font-weight: bold; color: #ff1493; margin-bottom: 6px; }
-.recorrido-desc { color: #555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px; }
+.recorrido-nombre { font-size: clamp(1.3rem, 3vw, 1.6rem); font-weight: bold; color: #ff1493; margin-bottom: 6px; }
+.recorrido-desc   { color: #555; font-size: .95rem; line-height: 1.6; margin-bottom: 16px; }
 .recorrido-ver-btn {
     background: linear-gradient(135deg, #ff69b4, #ff8fab);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 24px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: opacity 0.2s;
+    color: white; border: none; border-radius: 10px;
+    padding: 10px 24px; font-weight: bold; font-size: .9rem;
+    cursor: pointer; transition: opacity .2s;
 }
-.recorrido-ver-btn:hover { opacity: 0.85; }
+.recorrido-ver-btn:hover { opacity: .85; }
 
+/* Navegación carrusel */
 .recorrido-nav {
     display: flex;
     align-items: center;
@@ -196,81 +181,58 @@ header, main, footer.site-footer, .modal { position: relative; z-index: 1; }
     flex-wrap: wrap;
 }
 .nav-arrow {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: #ff69b4;
-    color: white;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: #ff69b4; color: white;
+    border: none; font-size: 1.2rem; cursor: pointer;
+    transition: background .2s, transform .1s;
     display: flex; align-items: center; justify-content: center;
 }
-.nav-arrow:hover { background: #e05598; transform: scale(1.08); }
+.nav-arrow:hover   { background: #e05598; transform: scale(1.08); }
 .nav-arrow:disabled { background: #f0c0d8; cursor: default; transform: none; }
-
 .nav-dots { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
 .nav-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: #f0c0d8;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #f0c0d8; cursor: pointer;
+    transition: background .2s, transform .2s;
     border: none;
 }
 .nav-dot.activo { background: #ff69b4; transform: scale(1.3); }
-
 .recorrido-counter { text-align: center; font-size: 13px; color: #aaa; margin-top: 10px; }
 
-/* ── Modales Artistas ── */
+/* ── Sección Cards (default) ── */
+#sec-cards { display: block; }
+
+/* ── Modales — tema oscuro artístico ── */
 .art-modal-header { border-bottom: 2px solid var(--accent); color: #f0ead6; }
-.art-modal-body { background: #0f0f0f; color: #ddd; }
+.art-modal-body   { background: #0f0f0f; color: #ddd; }
 .art-modal-footer { background: #0f0f0f; border-top: 1px solid #2a2a2a; }
+
 .art-badge {
-    color: #000;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 3px;
-    background: var(--accent);
+    color: #000; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 3px 10px;
+    border-radius: 3px; background: var(--accent);
 }
 .art-stat {
-    background: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding: 10px 14px;
-    text-align: center;
+    background: #1a1a1a; border: 1px solid #333;
+    border-radius: 8px; padding: 10px 14px; text-align: center;
 }
 .art-stat-value { font-size: 1.3rem; font-weight: bold; color: var(--accent); }
 .art-stat-label { font-size: 11px; color: #888; letter-spacing: 1px; text-transform: uppercase; }
 .art-section-title {
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    margin-top: 16px;
-    color: var(--accent);
+    font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 8px; margin-top: 16px; color: var(--accent);
 }
 .art-img-modal {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 8px;
+    width: 100%; height: 220px;
+    object-fit: cover; object-position: top; border-radius: 8px;
 }
 .art-pill {
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: #ccc;
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 12px;
-    display: inline-block;
-    margin: 3px 2px;
+    background: #1a1a1a; border: 1px solid #333; color: #ccc;
+    border-radius: 20px; padding: 4px 12px; font-size: 12px;
+    display: inline-block; margin: 3px 2px;
 }
 
-/* ── Colores de acento por artista ── */
+/* Colores accent por modal */
 #mjModal  { --accent: #d4a017; }
 #beyModal { --accent: #c084fc; }
 #bbModal  { --accent: #fb923c; }
@@ -293,21 +255,10 @@ header, main, footer.site-footer, .modal { position: relative; z-index: 1; }
 
 /* ── Modal Contacto ── */
 #contactoModal .modal-content { border-radius: 20px; overflow: hidden; }
-#contactoModal .modal-header {
-    background: linear-gradient(135deg, #ff69b4, #ff8fab);
-    border-bottom: none;
-    padding: 2rem 2rem 1rem;
-}
+#contactoModal .modal-header  { background: linear-gradient(135deg, #ff69b4, #ff8fab); border-bottom: none; padding: 2rem 2rem 1rem; }
 #contactoModal .modal-body    { background: #fff; padding: 2rem; }
 #contactoModal .modal-footer  { background: #fff; border-top: 1px solid #ffe0ec; padding: 1rem 2rem 1.5rem; }
 
-.contact-icon {
-    width: 64px; height: 64px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.25);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 28px; margin-bottom: 10px;
-}
 .contact-input {
     border: 2px solid #ffd6e7;
     border-radius: 10px;
@@ -315,118 +266,103 @@ header, main, footer.site-footer, .modal { position: relative; z-index: 1; }
     font-size: 15px;
     width: 100%;
     outline: none;
-    transition: border-color 0.2s;
+    transition: border-color .2s;
 }
-.contact-input:focus {
-    border-color: #ff69b4;
-    box-shadow: 0 0 0 3px rgba(255,105,180,0.15);
-}
+.contact-input:focus { border-color: #ff69b4; box-shadow: 0 0 0 3px rgba(255,105,180,.15); }
 .contact-btn {
     background: linear-gradient(135deg, #ff69b4, #ff8fab);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 12px 28px;
-    font-size: 15px;
-    font-weight: bold;
-    width: 100%;
-    cursor: pointer;
-    transition: opacity 0.2s, transform 0.1s;
+    color: white; border: none; border-radius: 10px;
+    padding: 12px 28px; font-size: 15px; font-weight: bold;
+    width: 100%; cursor: pointer; transition: opacity .2s, transform .1s;
 }
-.contact-btn:hover  { opacity: 0.9; transform: translateY(-1px); }
-.contact-btn:active { transform: scale(0.98); }
+.contact-btn:hover  { opacity: .9; transform: translateY(-1px); }
+.contact-btn:active { transform: scale(.98); }
 
 /* ── FOOTER ── */
 .site-footer {
-    background: linear-gradient(135deg, #ff69b4, #e05598);
+    background: linear-gradient(135deg, #ff69b4, #ff8fab);
     color: white;
-    padding: 48px 0 24px;
+    padding: 48px 0 0;
     margin-top: 60px;
 }
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 32px;
-    max-width: 1100px;
+    padding: 0 24px 40px;
+    max-width: 1140px;
     margin: 0 auto;
-    padding: 0 20px;
 }
-.footer-col h3 {
-    font-size: 1rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    opacity: 0.85;
-}
-.footer-col p,
-.footer-col a {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.85);
-    text-decoration: none;
-    line-height: 1.8;
-}
-.footer-col a:hover { color: #fff3b0; text-decoration: underline; }
-.footer-col ul { list-style: none; padding: 0; margin: 0; }
-.footer-col ul li { margin-bottom: 6px; }
-
-.footer-brand {
+.footer-brand h2 {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 8px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
 }
-.footer-tagline {
-    font-size: 0.85rem;
-    opacity: 0.8;
-    margin-bottom: 16px;
+.footer-brand p {
+    font-size: .9rem;
+    opacity: .9;
+    line-height: 1.7;
 }
-.footer-socials { display: flex; gap: 10px; flex-wrap: wrap; }
-.footer-social-btn {
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.3);
+.footer-col h3 {
+    font-size: .8rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    opacity: .7;
+    font-weight: 700;
+}
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col ul li { margin-bottom: 8px; }
+.footer-col ul li a {
     color: white;
+    text-decoration: none;
+    font-size: .9rem;
+    opacity: .85;
+    transition: opacity .2s;
+}
+.footer-col ul li a:hover { opacity: 1; text-decoration: underline; }
+.footer-col ul li a::before { content: "♪ "; font-size: .75rem; }
+
+.footer-dato {
+    background: rgba(255,255,255,.15);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    font-size: .85rem;
+    line-height: 1.5;
+}
+.footer-dato strong { display: block; font-size: .75rem; letter-spacing: 1.5px; text-transform: uppercase; opacity: .7; margin-bottom: 2px; }
+
+.footer-social { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+.footer-social a {
+    background: rgba(255,255,255,.2);
+    color: white;
+    text-decoration: none;
     border-radius: 8px;
     padding: 6px 14px;
-    font-size: 0.8rem;
+    font-size: .8rem;
     font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s;
-    text-decoration: none;
-    display: inline-block;
+    letter-spacing: .5px;
+    transition: background .2s;
 }
-.footer-social-btn:hover { background: rgba(255,255,255,0.35); color: white; }
+.footer-social a:hover { background: rgba(255,255,255,.35); }
 
-.footer-stats {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-.footer-stat-item { text-align: center; }
-.footer-stat-num { font-size: 1.4rem; font-weight: bold; display: block; }
-.footer-stat-label { font-size: 0.7rem; opacity: 0.75; text-transform: uppercase; letter-spacing: 1px; }
-
-.footer-divider {
-    border: none;
-    border-top: 1px solid rgba(255,255,255,0.25);
-    margin: 32px auto 20px;
-    max-width: 1100px;
-}
 .footer-bottom {
+    background: rgba(0,0,0,.15);
     text-align: center;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.75);
-    padding: 0 20px;
+    padding: 14px 20px;
+    font-size: .8rem;
+    opacity: .85;
+    letter-spacing: .5px;
 }
-.footer-bottom strong { color: #fff3b0; }
 
-/* ── Responsive ajustes extra ── */
+/* ── Responsive ajustes ── */
 @media (max-width: 576px) {
     .recorrido-img { height: 220px; }
-    .card-img-top  { height: 160px; }
     .art-img-modal { height: 180px; }
-    .footer-grid   { grid-template-columns: 1fr 1fr; }
+    .footer-grid   { grid-template-columns: 1fr; gap: 24px; padding: 0 16px 32px; }
 }
-@media (max-width: 400px) {
-    .footer-grid { grid-template-columns: 1fr; }
+@media (max-width: 768px) {
+    .card-img-top { height: 180px; }
 }
