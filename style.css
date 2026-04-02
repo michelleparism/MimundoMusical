@@ -1,0 +1,417 @@
+/* =============================================
+   MUNDO MUSICAL — styles.css
+   CSS3 | Responsive | Mobile-first
+   ============================================= */
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    background: linear-gradient(135deg, #fff3b0, #ffb3c6);
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* ── Navbar ── */
+.navbar { background-color: #ff69b4; }
+.navbar-brand,
+.nav-link { color: white !important; font-weight: bold; }
+.nav-link:hover { opacity: 0.85; }
+
+/* ── Header (sección cards) ── */
+.header { text-align: center; padding: 60px 20px; color: #333; }
+.header h1 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: bold; }
+.header p  { font-size: clamp(1rem, 3vw, 1.5rem); }
+
+/* ── Cards iguales ── */
+.card {
+    border-radius: 12px;
+    border: 2px solid #ffd966;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover { transform: scale(1.05); }
+.card-title { color: #ff1493; font-weight: bold; }
+
+.card-img-top {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px 10px 0 0;
+    flex-shrink: 0;
+}
+
+.card .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ── Secciones de página ── */
+.seccion { display: none; }
+.seccion.activa { display: block; }
+#sec-cards { display: block; }
+
+/* ── Sección Inicio ── */
+#sec-inicio {
+    min-height: 80vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+}
+#sec-inicio.activa { display: flex; flex-direction: column; }
+
+.inicio-emoji { font-size: clamp(48px, 10vw, 72px); animation: bounce 1.8s infinite; }
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-14px); }
+}
+
+.inicio-titulo {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: bold;
+    color: #d63384;
+    margin: 20px 0 12px;
+    line-height: 1.3;
+}
+.inicio-sub {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+.inicio-wave {
+    font-size: 1rem;
+    color: #ff69b4;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.inicio-btn {
+    background: linear-gradient(135deg, #ff69b4, #ff8fab);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 36px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    box-shadow: 0 4px 15px rgba(255,105,180,0.4);
+}
+.inicio-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+/* ── Sección Artistas — carrusel ── */
+#sec-artistas { display: none; padding: 40px 20px; }
+#sec-artistas.activa { display: block; }
+
+.artistas-titulo {
+    text-align: center;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: bold;
+    color: #d63384;
+    margin-bottom: 8px;
+}
+.artistas-sub {
+    text-align: center;
+    color: #777;
+    margin-bottom: 36px;
+    font-size: 1rem;
+}
+
+.recorrido-wrap { position: relative; overflow: hidden; }
+.recorrido-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.recorrido-slide {
+    min-width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+.recorrido-card {
+    background: white;
+    border-radius: 20px;
+    border: 2px solid #ffd6e7;
+    box-shadow: 0 6px 24px rgba(255,105,180,0.15);
+    overflow: hidden;
+    max-width: 480px;
+    margin: 0 auto;
+}
+.recorrido-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top;
+}
+.recorrido-body { padding: 1.5rem; }
+.recorrido-nombre { font-size: clamp(1.3rem, 4vw, 1.6rem); font-weight: bold; color: #ff1493; margin-bottom: 6px; }
+.recorrido-desc { color: #555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px; }
+.recorrido-ver-btn {
+    background: linear-gradient(135deg, #ff69b4, #ff8fab);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 24px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.recorrido-ver-btn:hover { opacity: 0.85; }
+
+.recorrido-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+.nav-arrow {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: flex; align-items: center; justify-content: center;
+}
+.nav-arrow:hover { background: #e05598; transform: scale(1.08); }
+.nav-arrow:disabled { background: #f0c0d8; cursor: default; transform: none; }
+
+.nav-dots { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.nav-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #f0c0d8;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    border: none;
+}
+.nav-dot.activo { background: #ff69b4; transform: scale(1.3); }
+
+.recorrido-counter { text-align: center; font-size: 13px; color: #aaa; margin-top: 10px; }
+
+/* ── Modales Artistas ── */
+.art-modal-header { border-bottom: 2px solid var(--accent); color: #f0ead6; }
+.art-modal-body { background: #0f0f0f; color: #ddd; }
+.art-modal-footer { background: #0f0f0f; border-top: 1px solid #2a2a2a; }
+.art-badge {
+    color: #000;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+    background: var(--accent);
+}
+.art-stat {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-align: center;
+}
+.art-stat-value { font-size: 1.3rem; font-weight: bold; color: var(--accent); }
+.art-stat-label { font-size: 11px; color: #888; letter-spacing: 1px; text-transform: uppercase; }
+.art-section-title {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    margin-top: 16px;
+    color: var(--accent);
+}
+.art-img-modal {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 8px;
+}
+.art-pill {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #ccc;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    display: inline-block;
+    margin: 3px 2px;
+}
+
+/* ── Colores de acento por artista ── */
+#mjModal  { --accent: #d4a017; }
+#beyModal { --accent: #c084fc; }
+#bbModal  { --accent: #fb923c; }
+#rosModal { --accent: #f43f5e; }
+#dyModal  { --accent: #facc15; }
+#bmModal  { --accent: #38bdf8; }
+#rmModal  { --accent: #4ade80; }
+#doModal  { --accent: #a78bfa; }
+#jjModal  { --accent: #fb7185; }
+
+#mjModal  .art-modal-header { background: linear-gradient(135deg, #1a1a1a, #2d1f00); }
+#beyModal .art-modal-header { background: linear-gradient(135deg, #1a1a1a, #1e0a2d); }
+#bbModal  .art-modal-header { background: linear-gradient(135deg, #1a1a1a, #2d1200); }
+#rosModal .art-modal-header { background: linear-gradient(135deg, #1a1a1a, #2d0010); }
+#dyModal  .art-modal-header { background: linear-gradient(135deg, #1a1a1a, #2d2600); }
+#bmModal  .art-modal-header { background: linear-gradient(135deg, #1a1a1a, #001a2d); }
+#rmModal  .art-modal-header { background: linear-gradient(135deg, #1a1a1a, #002d10); }
+#doModal  .art-modal-header { background: linear-gradient(135deg, #1a1a1a, #1a0d2d); }
+#jjModal  .art-modal-header { background: linear-gradient(135deg, #1a1a1a, #2d0018); }
+
+/* ── Modal Contacto ── */
+#contactoModal .modal-content { border-radius: 20px; overflow: hidden; }
+#contactoModal .modal-header {
+    background: linear-gradient(135deg, #ff69b4, #ff8fab);
+    border-bottom: none;
+    padding: 2rem 2rem 1rem;
+}
+#contactoModal .modal-body    { background: #fff; padding: 2rem; }
+#contactoModal .modal-footer  { background: #fff; border-top: 1px solid #ffe0ec; padding: 1rem 2rem 1.5rem; }
+
+.contact-icon {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; margin-bottom: 10px;
+}
+.contact-input {
+    border: 2px solid #ffd6e7;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 15px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.contact-input:focus {
+    border-color: #ff69b4;
+    box-shadow: 0 0 0 3px rgba(255,105,180,0.15);
+}
+.contact-btn {
+    background: linear-gradient(135deg, #ff69b4, #ff8fab);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+}
+.contact-btn:hover  { opacity: 0.9; transform: translateY(-1px); }
+.contact-btn:active { transform: scale(0.98); }
+
+/* ── FOOTER ── */
+.site-footer {
+    background: linear-gradient(135deg, #ff69b4, #e05598);
+    color: white;
+    padding: 48px 0 24px;
+    margin-top: 60px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.footer-col h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    opacity: 0.85;
+}
+.footer-col p,
+.footer-col a {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    line-height: 1.8;
+}
+.footer-col a:hover { color: #fff3b0; text-decoration: underline; }
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col ul li { margin-bottom: 6px; }
+
+.footer-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.footer-tagline {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-bottom: 16px;
+}
+.footer-socials { display: flex; gap: 10px; flex-wrap: wrap; }
+.footer-social-btn {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+.footer-social-btn:hover { background: rgba(255,255,255,0.35); color: white; }
+
+.footer-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.footer-stat-item { text-align: center; }
+.footer-stat-num { font-size: 1.4rem; font-weight: bold; display: block; }
+.footer-stat-label { font-size: 0.7rem; opacity: 0.75; text-transform: uppercase; letter-spacing: 1px; }
+
+.footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin: 32px auto 20px;
+    max-width: 1100px;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.75);
+    padding: 0 20px;
+}
+.footer-bottom strong { color: #fff3b0; }
+
+/* ── Responsive ajustes extra ── */
+@media (max-width: 576px) {
+    .recorrido-img { height: 220px; }
+    .card-img-top  { height: 160px; }
+    .art-img-modal { height: 180px; }
+    .footer-grid   { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+    .footer-grid { grid-template-columns: 1fr; }
+}

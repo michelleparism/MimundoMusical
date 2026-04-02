@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mundo Musical — Conoce a los mejores artistas del pop y la música latina.">
+    <title>Mundo Musical</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════ -->
+<header>
+    <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="mostrarSeccion('cards'); return false;">
+                🎵 MUNDO MUSICAL
+            </a>
+            <button class="navbar-toggler bg-light" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="mostrarSeccion('inicio'); return false;">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="mostrarSeccion('artistas'); return false;">Artistas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactoModal">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════════ -->
+<main>
+
+    <!-- ── SECCIÓN INICIO ── -->
+    <section id="sec-inicio" aria-label="Bienvenida">
+        <div>
+            <p class="inicio-wave">✦ Bienvenido ✦</p>
+            <div class="inicio-emoji" aria-hidden="true">🎶</div>
+            <h1 class="inicio-titulo">Hey! gracias por elegir<br>Mundo Musical</h1>
+            <p class="inicio-sub">
+                Escucha, ve e infórmate con nosotros sobre<br>
+                <strong style="color:#ff69b4;">lo mejor de lo mejor.</strong>
+            </p>
+            <button class="inicio-btn" onclick="mostrarSeccion('artistas')">
+                🎤 Explorar artistas
+            </button>
+        </div>
+    </section>
+
+    <!-- ── SECCIÓN ARTISTAS — RECORRIDO ── -->
+    <section id="sec-artistas" aria-label="Recorrido por artistas">
+        <div class="container">
+            <h2 class="artistas-titulo">🎤 Nuestros Artistas</h2>
+            <p class="artistas-sub">Desliza y descubre a los mejores talentos del mundo</p>
+
+            <div class="recorrido-wrap" role="region" aria-label="Carrusel de artistas">
+                <div class="recorrido-track" id="recorrido-track">
+
+                    <!-- Slide 1: Michael Jackson -->
+                    <article class="recorrido-slide">
+                        <div class="recorrido-card">
+                            <img src="https://media.vogue.es/photos/6538fee5e68177b3d0971e69/2:3/w_1920,c_limit/Michael%20Jackson.jpeg"
+                                 class="recorrido-img" alt="Michael Jackson" loading="lazy">
+                            <div class="recorrido-body">
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                                    <span style="background:#fff3cd;color:#856404;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:4px;font-weight:bold;">El Rey del Pop</span>
+                                    <span style="color:#aaa;font-size:12px;">1958 — 2009</span>
+                                </div>
+                                <div class="recorrido-nombre">Michael Jackson</div>
+                                <p class="recorrido-desc">Revolucionó la música, el baile y el videoclip. Su álbum <em>Thriller</em> es el más vendido de todos los tiempos con más de 70 millones de copias. Creador del moonwalk y ganador de 13 Grammy.</p>
+                                <button class="recorrido-ver-btn" data-bs-toggle="modal" data-bs-target="#mjModal">Ver perfil completo →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 2: Beyoncé -->
+                    <article class="recorrido-slide">
+                        <div class="recorrido-card">
+                            <img src="https://hips.hearstapps.com/hmg-prod/images/beyonc-c3-a9-performs-onstage-during-the-renaissance-world-news-photo-1707759399.jpg?crop=0.520xw:0.758xh;0.157xw,0"
+                                 class="recorrido-img" alt="Beyoncé" loading="lazy">
+                            <div class="recorrido-body">
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                                    <span style="background:#f3e8ff;color:#6b21a8;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:4px;font-weight:bold;">Reina del R&amp;B</span>
+                                    <span style="color:#aaa;font-size:12px;">Houston, Texas</span>
+                                </div>
+                                <div class="recorrido-nombre">Beyoncé</div>
+                                <p class="recorrido-desc">La artista más premiada en la historia de los Grammy con 32 galardones. Icono feminista y cultural global. Su <em>Renaissance World Tour</em> recaudó más de 570 millones de dólares.</p>
+                                <button class="recorrido-ver-btn" data-bs-toggle="modal" data-bs-target="#beyModal" style="background:linear-gradient(135deg,#a855f7,#c084fc);">Ver perfil completo →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 3: Bad Bunny -->
+                    <article class="recorrido-slide">
+                        <div class="recorrido-card">
+                            <img src="https://www.latercera.com/resizer/v2/FULA7K2RAJGMVP4QI544FXOI64.jpeg?auth=8f13eead5b36bca7eb54d119453779ac70e86fce1e69873aa7e39f5baaee1347&smart=true&width=800&height=618&quality=70"
+                                 class="recorrido-img" alt="Bad Bunny" loading="lazy">
+                            <div class="recorrido-body">
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                                    <span style="background:#fff0e6;color:#9a3412;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:4px;font-weight:bold;">El Conejo Malo</span>
+                                    <span style="color:#aaa;font-size:12px;">Puerto Rico</span>
+                                </div>
+                                <div class="recorrido-nombre">Bad Bunny</div>
+                                <p class="recorrido-desc">El artista más escuchado del mundo en Spotify durante 3 años consecutivos. Referente del reggaetón y la música urbana latina. Su álbum <em>Un Verano Sin Ti</em> marcó un antes y un después.</p>
+                                <button class="recorrido-ver-btn" data-bs-toggle="modal" data-bs-target="#bbModal" style="background:linear-gradient(135deg,#ea580c,#fb923c);">Ver perfil completo →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 4: Rosalía -->
+                    <article class="recorrido-slide">
+                        <div class="recorrido-card">
+                            <img src="https://imagenes.elpais.com/resizer/v2/TJBNWI7GL5P7TOXUKKP77AJD4M.jpg?auth=7e042c56a05463e601fe10bc4dba896074f00e4dc58baeb5d06e28064214139c&width=1200"
+                                 class="recorrido-img" alt="Rosalía" loading="lazy">
+                            <div class="recorrido-body">
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                                    <span style="background:#ffe4e6;color:#9f1239;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:4px;font-weight:bold;">Motomami</span>
+                                    <span style="color:#aaa;font-size:12px;">Barcelona, España</span>
+                                </div>
+                                <div class="recorrido-nombre">Rosalía</div>
+                                <p class="recorrido-desc">La artista española con mayor proyección internacional de su generación. Fusiona flamenco puro con trap, reggaetón y pop experimental. Ganadora de 8 Grammy Latinos y 3 Grammy estadounidenses.</p>
+                                <button class="recorrido-ver-btn" data-bs-toggle="modal" data-bs-target="#rosModal" style="background:linear-gradient(135deg,#e11d48,#f43f5e);">Ver perfil completo →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 5: Daddy Yankee -->
+                    <article class="recorrido-slide">
+                        <div class="recorrido-card">
+                            <img src="https://media.gq.com.mx/photos/6239fba81f1476c1f08e6069/16:9/w_1600,c_limit/daddy%20yankee-1342061128.jpg"
+                                 class="recorrido-img" alt="Daddy Yankee" loading="lazy">
+                            <div class="recorrido-body">
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                                    <span style="background:#fef9c3;color:#854d0e;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:4px;font-weight:bold;">El Big Boss</span>
+                                    <span style="color:#aaa;font-size:12px;">San Juan, Puerto Rico</span>
+                                </div>
+                                <div class="recorrido-nombre">Daddy Yankee</div>
+                                <p class="recorrido-desc">Considerado el padre del reggaetón. Su canción <em>Gasolina</em> (2004) llevó el género al mundo entero. <em>Despacito</em> (2017) batió todos los récords en YouTube con más de 8 mil millones de reproducciones.</p>
+                                <button class="recorrido-ver-btn" data-bs-toggle="modal" data-bs-target="#dyModal" style="background:linear-gradient(135deg,#ca8a04,#facc15);color:#000;">Ver perfil completo →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 6: Bruno Mars -->
+                    <article class="recorrido-slide">
+                        <div class="recorrido-card">
+                            <img src="https://www.nacion.com/resizer/v2/K3FNYQDPW5EXDEH6S2WKNZHPL4.jpg?smart=true&auth=b5a2e38276a596e2fe55a0233d726a7b27a944bb05fb81de0b3185c0892fbf45&width=1440&height=1440"
+                                 class="recorrido-img" alt="Bruno Mars" loading="lazy">
+                            <div class="recorrido-body">
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                                    <span style="background:#e0f2fe;color:#0c4a6e;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:4px;font-weight:bold;">Mr. Worldwide Pop</span>
+                                    <span style="color:#aaa;font-size:12px;">Honolulu, Hawái</span>
+                                </div>
+                                <div class="recorrido-nombre">Bruno Mars</div>
+                                <p class="recorrido-desc">Artista completo que canta, baila, toca y compone. Su álbum <em>24K Magic</em> ganó los 7 Grammy a los que fue nominado. Ha vendido más de 130 millones de discos en todo el mundo.</p>
+                                <button class="recorrido-ver-btn" data-bs-toggle="modal" data-bs-target="#bmModal" style="background:linear-gradient(135deg,#0284c7,#38bdf8);">Ver perfil completo →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 7: Ricky Martin -->
+                    <article class="recorrido-slide">
+                        <div class="recorrido-card">
+                            <img src="https://www.cmtv.com.ar/imagenes_artistas/255.webp?Ricky%20Martin"
+                                 class="recorrido-img" alt="Ricky Martin" loading="lazy">
+                            <div class="recorrido-body">
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                                    <span style="background:#dcfce7;color:#14532d;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:4px;font-weight:bold;">El Rey del Pop Latino</span>
+                                    <span style="color:#aaa;font-size:12px;">San Juan, Puerto Rico</span>
+                                </div>
+                                <div class="recorrido-nombre">Ricky Martin</div>
+                                <p class="recorrido-desc">Conquistó el mundo con <em>Livin' la Vida Loca</em> (1999), abriendo las puertas del mercado anglosajón a la música latina. Ha vendido más de 70 millones de discos y ganado 2 Grammy.</p>
+                                <button class="recorrido-ver-btn" data-bs-toggle="modal" data-bs-target="#rmModal" style="background:linear-gradient(135deg,#16a34a,#4ade80);">Ver perfil completo →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 8: Don Omar -->
+                    <article class="recorrido-slide">
+                        <div class="recorrido-card">
+                            <img src="https://preview.redd.it/what-is-your-opinion-on-don-omar-v0-elo49vk819yc1.jpeg?auto=webp&s=d25ebcc7b05c036b5c742c5817fcc8d146a2c9de"
+                                 class="recorrido-img" alt="Don Omar" loading="lazy">
+                            <div class="recorrido-body">
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                                    <span style="background:#ede9fe;color:#4c1d95;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:4px;font-weight:bold;">El Rey del Reggaetón</span>
+                                    <span style="color:#aaa;font-size:12px;">San Juan, Puerto Rico</span>
+                                </div>
+                                <div class="recorrido-nombre">Don Omar</div>
+                                <p class="recorrido-desc">Una de las voces más icónicas del reggaetón. Su canción <em>Danza Kuduro</em> se convirtió en fenómeno mundial. Ha vendido millones de discos y es reconocido como uno de los pilares del género urbano latino.</p>
+                                <button class="recorrido-ver-btn" data-bs-toggle="modal" data-bs-target="#doModal" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">Ver perfil completo →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 9: Jesse & Joy -->
+                    <article class="recorrido-slide">
+                        <div class="recorrido-card">
+                            <img src="https://jesseyjoy.com/images/discografia/un-besito-mas-jesseyjoy.png"
+                                 class="recorrido-img" alt="Jesse &amp; Joy" loading="lazy">
+                            <div class="recorrido-body">
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                                    <span style="background:#ffe4e6;color:#9f1239;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:4px;font-weight:bold;">Dúo hermanos</span>
+                                    <span style="color:#aaa;font-size:12px;">Ciudad de México</span>
+                                </div>
+                                <div class="recorrido-nombre">Jesse &amp; Joy</div>
+                                <p class="recorrido-desc">Dúo de hermanos mexicanos que mezcla pop, folk y soul con letras profundas en español. Ganadores de múltiples Grammy Latinos, conocidos por éxitos como <em>¡Corre!</em> y <em>Espacio Sideral</em>.</p>
+                                <button class="recorrido-ver-btn" data-bs-toggle="modal" data-bs-target="#jjModal" style="background:linear-gradient(135deg,#e11d48,#fb7185);">Ver perfil completo →</button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div><!-- /recorrido-track -->
+            </div><!-- /recorrido-wrap -->
+
+            <!-- Navegación del carrusel -->
+            <nav class="recorrido-nav" aria-label="Controles del carrusel">
+                <button class="nav-arrow" id="btn-prev" onclick="moverSlide(-1)" disabled aria-label="Artista anterior">&#8592;</button>
+                <div class="nav-dots" role="tablist" aria-label="Diapositivas">
+                    <button class="nav-dot activo" role="tab" aria-selected="true"  onclick="irSlide(0)" aria-label="Ir al artista 1"></button>
+                    <button class="nav-dot"         role="tab" aria-selected="false" onclick="irSlide(1)" aria-label="Ir al artista 2"></button>
+                    <button class="nav-dot"         role="tab" aria-selected="false" onclick="irSlide(2)" aria-label="Ir al artista 3"></button>
+                    <button class="nav-dot"         role="tab" aria-selected="false" onclick="irSlide(3)" aria-label="Ir al artista 4"></button>
+                    <button class="nav-dot"         role="tab" aria-selected="false" onclick="irSlide(4)" aria-label="Ir al artista 5"></button>
+                    <button class="nav-dot"         role="tab" aria-selected="false" onclick="irSlide(5)" aria-label="Ir al artista 6"></button>
+                    <button class="nav-dot"         role="tab" aria-selected="false" onclick="irSlide(6)" aria-label="Ir al artista 7"></button>
+                    <button class="nav-dot"         role="tab" aria-selected="false" onclick="irSlide(7)" aria-label="Ir al artista 8"></button>
+                    <button class="nav-dot"         role="tab" aria-selected="false" onclick="irSlide(8)" aria-label="Ir al artista 9"></button>
+                </div>
+                <button class="nav-arrow" id="btn-next" onclick="moverSlide(1)" aria-label="Artista siguiente">&#8594;</button>
+            </nav>
+            <p class="recorrido-counter" id="recorrido-counter" aria-live="polite">1 / 9</p>
+
+        </div>
+    </section>
+
+    <!-- ── SECCIÓN CARDS (vista por defecto) ── -->
+    <section id="sec-cards" aria-label="Galería de artistas">
+        <div class="header">
+            <h1>MUNDO MUSICAL</h1>
+            <p>Aquí están los mejores talentos</p>
+        </div>
+        <div class="container mb-5">
+            <div class="row g-4 row-cols-2 row-cols-md-3 row-cols-lg-4">
+
+                <!-- Michael Jackson -->
+                <div class="col">
+                    <article class="card p-3 text-center" data-bs-toggle="modal" data-bs-target="#mjModal" role="button" tabindex="0" aria-label="Ver más sobre Michael Jackson">
+                        <img src="https://media.vogue.es/photos/6538fee5e68177b3d0971e69/2:3/w_1920,c_limit/Michael%20Jackson.jpeg"
+                             class="card-img-top" alt="Michael Jackson" loading="lazy">
+                        <div class="card-body">
+                            <div>
+                                <h2 class="card-title h5">Michael Jackson</h2>
+                                <p class="card-text">El Rey del Pop, revolucionó la música y el baile.</p>
+                            </div>
+                            <small class="text-muted">👆 Toca para más info</small>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Beyoncé -->
+                <div class="col">
+                    <article class="card p-3 text-center" data-bs-toggle="modal" data-bs-target="#beyModal" role="button" tabindex="0" aria-label="Ver más sobre Beyoncé">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/beyonc-c3-a9-performs-onstage-during-the-renaissance-world-news-photo-1707759399.jpg?crop=0.520xw:0.758xh;0.157xw,0"
+                             class="card-img-top" alt="Beyoncé" loading="lazy">
+                        <div class="card-body">
+                            <div>
+                                <h2 class="card-title h5">Beyoncé</h2>
+                                <p class="card-text">Icono global del pop y R&amp;B con gran influencia cultural.</p>
+                            </div>
+                            <small class="text-muted">👆 Toca para más info</small>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Bad Bunny -->
+                <div class="col">
+                    <article class="card p-3 text-center" data-bs-toggle="modal" data-bs-target="#bbModal" role="button" tabindex="0" aria-label="Ver más sobre Bad Bunny">
+                        <img src="https://www.latercera.com/resizer/v2/FULA7K2RAJGMVP4QI544FXOI64.jpeg?auth=8f13eead5b36bca7eb54d119453779ac70e86fce1e69873aa7e39f5baaee1347&smart=true&width=800&height=618&quality=70"
+                             class="card-img-top" alt="Bad Bunny" loading="lazy">
+                        <div class="card-body">
+                            <div>
+                                <h2 class="card-title h5">Bad Bunny</h2>
+                                <p class="card-text">Referente del reggaetón y la música urbana latina.</p>
+                            </div>
+                            <small class="text-muted">👆 Toca para más info</small>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Rosalía -->
+                <div class="col">
+                    <article class="card p-3 text-center" data-bs-toggle="modal" data-bs-target="#rosModal" role="button" tabindex="0" aria-label="Ver más sobre Rosalía">
+                        <img src="https://imagenes.elpais.com/resizer/v2/TJBNWI7GL5P7TOXUKKP77AJD4M.jpg?auth=7e042c56a05463e601fe10bc4dba896074f00e4dc58baeb5d06e28064214139c&width=1200"
+                             class="card-img-top" alt="Rosalía" loading="lazy">
+                        <div class="card-body">
+                            <div>
+                                <h2 class="card-title h5">Rosalía</h2>
+                                <p class="card-text">Fusiona flamenco con sonidos modernos innovadores.</p>
+                            </div>
+                            <small class="text-muted">👆 Toca para más info</small>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Daddy Yankee -->
+                <div class="col">
+                    <article class="card p-3 text-center" data-bs-toggle="modal" data-bs-target="#dyModal" role="button" tabindex="0" aria-label="Ver más sobre Daddy Yankee">
+                        <img src="https://media.gq.com.mx/photos/6239fba81f1476c1f08e6069/16:9/w_1600,c_limit/daddy%20yankee-1342061128.jpg"
+                             class="card-img-top" alt="Daddy Yankee" loading="lazy">
+                        <div class="card-body">
+                            <div>
+                                <h2 class="card-title h5">Daddy Yankee</h2>
+                                <p class="card-text">El Big Boss, padre del reggaetón y leyenda del género urbano.</p>
+                            </div>
+                            <small class="text-muted">👆 Toca para más info</small>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Bruno Mars -->
+                <div class="col">
+                    <article class="card p-3 text-center" data-bs-toggle="modal" data-bs-target="#bmModal" role="button" tabindex="0" aria-label="Ver más sobre Bruno Mars">
+                        <img src="https://www.nacion.com/resizer/v2/K3FNYQDPW5EXDEH6S2WKNZHPL4.jpg?smart=true&auth=b5a2e38276a596e2fe55a0233d726a7b27a944bb05fb81de0b3185c0892fbf45&width=1440&height=1440"
+                             class="card-img-top" alt="Bruno Mars" loading="lazy">
+                        <div class="card-body">
+                            <div>
+                                <h2 class="card-title h5">Bruno Mars</h2>
+                                <p class="card-text">Maestro del pop y R&amp;B con carisma y talento sin igual.</p>
+                            </div>
+                            <small class="text-muted">👆 Toca para más info</small>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Ricky Martin -->
+                <div class="col">
+                    <article class="card p-3 text-center" data-bs-toggle="modal" data-bs-target="#rmModal" role="button" tabindex="0" aria-label="Ver más sobre Ricky Martin">
+                        <img src="https://www.cmtv.com.ar/imagenes_artistas/255.webp?Ricky%20Martin"
+                             class="card-img-top" alt="Ricky Martin" loading="lazy">
+                        <div class="card-body">
+                            <div>
+                                <h2 class="card-title h5">Ricky Martin</h2>
+                                <p class="card-text">El rey del pop latino que conquistó el mundo con Livin' la Vida Loca.</p>
+                            </div>
+                            <small class="text-muted">👆 Toca para más info</small>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Don Omar -->
+                <div class="col">
+                    <article class="card p-3 text-center" data-bs-toggle="modal" data-bs-target="#doModal" role="button" tabindex="0" aria-label="Ver más sobre Don Omar">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Don_Omar_2011.jpg/800px-Don_Omar_2011.jpg"
+                             class="card-img-top" alt="Don Omar" loading="lazy">
+                        <div class="card-body">
+                            <div>
+                                <h2 class="card-title h5">Don Omar</h2>
+                                <p class="card-text">El Rey del Reggaetón, figura clave del género urbano latino.</p>
+                            </div>
+                            <small class="text-muted">👆 Toca para más info</small>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Jesse & Joy -->
+                <div class="col">
+                    <article class="card p-3 text-center" data-bs-toggle="modal" data-bs-target="#jjModal" role="button" tabindex="0" aria-label="Ver más sobre Jesse y Joy">
+                        <img src="https://jesseyjoy.com/images/discografia/un-besito-mas-jesseyjoy.png"
+                             class="card-img-top" alt="Jesse &amp; Joy" loading="lazy">
+                        <div class="card-body">
+                            <div>
+                                <h2 class="card-title h5">Jesse &amp; Joy</h2>
+                                <p class="card-text">Dúo hermano-hermana que mezcla pop, folk y soul en español.</p>
+                            </div>
+                            <small class="text-muted">👆 Toca para más info</small>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main><!-- /main -->
+
+
+<!-- ══════════════════════════════════════════════
+     MODALES DE ARTISTAS
+══════════════════════════════════════════════ -->
+
+<!-- MODAL MICHAEL JACKSON -->
+<div class="modal fade" id="mjModal" tabindex="-1" aria-label="Perfil Michael Jackson" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0" style="border-radius:16px;overflow:hidden;">
+            <div class="modal-header art-modal-header">
+                <div>
+                    <span class="art-badge">El Rey del Pop</span>
+                    <h4 class="modal-title mt-2" style="font-family:Georgia,serif;">Michael Jackson</h4>
+                    <small style="color:#aaa;font-size:12px;">29 ago 1958 — 25 jun 2009 · Gary, Indiana, EE.UU.</small>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body art-modal-body">
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <img src="https://media.vogue.es/photos/6538fee5e68177b3d0971e69/2:3/w_1920,c_limit/Michael%20Jackson.jpeg" class="art-img-modal" alt="Michael Jackson">
+                    </div>
+                    <div class="col-md-7">
+                        <p class="art-section-title">Biografía</p>
+                        <p style="font-size:14px;line-height:1.7;color:#ccc;">Michael Joseph Jackson comenzó su carrera a los 5 años como vocalista de <em>The Jackson 5</em>. Su álbum <strong style="color:#d4a017;">Thriller</strong> (1982) es el más vendido de todos los tiempos con más de 70 millones de copias. Revolucionó el videoclip como formato artístico e inventó el icónico <em>moonwalk</em>. Ganó 13 Grammy y es reconocido como el artista más influyente de la historia del pop.</p>
+                        <div class="row g-2 mt-1">
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">13</div><div class="art-stat-label">Grammy</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">70M+</div><div class="art-stat-label">Copias Thriller</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">400M</div><div class="art-stat-label">Discos vendidos</div></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Discografía destacada</p>
+                    <span class="art-pill">🎵 Off the Wall (1979)</span>
+                    <span class="art-pill">🎵 Thriller (1982)</span>
+                    <span class="art-pill">🎵 Bad (1987)</span>
+                    <span class="art-pill">🎵 Dangerous (1991)</span>
+                    <span class="art-pill">🎵 HIStory (1995)</span>
+                    <span class="art-pill">🎵 Invincible (2001)</span>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Legado</p>
+                    <p style="font-size:14px;line-height:1.7;color:#ccc;">Pionero en la fusión de pop, soul, funk y R&amp;B. Sus videoclips para <em>Thriller</em> y <em>Billie Jean</em> redefinieron el medio. Su influencia en la moda, la danza y la cultura popular permanece vigente décadas después de su muerte.</p>
+                </div>
+            </div>
+            <div class="modal-footer art-modal-footer">
+                <a href="https://es.wikipedia.org/wiki/Michael_Jackson" target="_blank" rel="noopener" class="btn btn-sm" style="background:#d4a017;color:#000;font-weight:bold;">Ver en Wikipedia</a>
+                <button type="button" class="btn btn-sm btn-outline-secondary text-white border-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL BEYONCÉ -->
+<div class="modal fade" id="beyModal" tabindex="-1" aria-label="Perfil Beyoncé" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0" style="border-radius:16px;overflow:hidden;">
+            <div class="modal-header art-modal-header">
+                <div>
+                    <span class="art-badge">Reina del Pop &amp; R&amp;B</span>
+                    <h4 class="modal-title mt-2" style="font-family:Georgia,serif;">Beyoncé</h4>
+                    <small style="color:#aaa;font-size:12px;">4 sep 1981 · Houston, Texas, EE.UU.</small>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body art-modal-body">
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/beyonc-c3-a9-performs-onstage-during-the-renaissance-world-news-photo-1707759399.jpg?crop=0.520xw:0.758xh;0.157xw,0" class="art-img-modal" alt="Beyoncé">
+                    </div>
+                    <div class="col-md-7">
+                        <p class="art-section-title">Biografía</p>
+                        <p style="font-size:14px;line-height:1.7;color:#ccc;">Beyoncé Giselle Knowles-Carter debutó en el grupo <em>Destiny's Child</em> antes de lanzar una exitosa carrera en solitario. Ha ganado <strong style="color:#c084fc;">32 Grammy</strong>, siendo la artista más premiada de la historia de estos galardones. Su álbum <em>Lemonade</em> (2016) fue aclamado como una obra maestra artística y cultural a nivel mundial.</p>
+                        <div class="row g-2 mt-1">
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">32</div><div class="art-stat-label">Grammy</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">200M+</div><div class="art-stat-label">Discos vendidos</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">$570M</div><div class="art-stat-label">Gira Renaissance</div></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Discografía destacada</p>
+                    <span class="art-pill">🎵 Dangerously in Love (2003)</span>
+                    <span class="art-pill">🎵 B'Day (2006)</span>
+                    <span class="art-pill">🎵 I Am... Sasha Fierce (2008)</span>
+                    <span class="art-pill">🎵 Lemonade (2016)</span>
+                    <span class="art-pill">🎵 Renaissance (2022)</span>
+                    <span class="art-pill">🎵 Cowboy Carter (2024)</span>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Legado</p>
+                    <p style="font-size:14px;line-height:1.7;color:#ccc;">Icono feminista y cultural que ha empoderado a millones a través de su música. Su <em>Renaissance World Tour</em> (2023) es una de las giras más exitosas de la historia. Es referente de la cultura afroamericana y un símbolo de empoderamiento femenino a nivel global.</p>
+                </div>
+            </div>
+            <div class="modal-footer art-modal-footer">
+                <a href="https://es.wikipedia.org/wiki/Beyonc%C3%A9" target="_blank" rel="noopener" class="btn btn-sm" style="background:#c084fc;color:#000;font-weight:bold;">Ver en Wikipedia</a>
+                <button type="button" class="btn btn-sm btn-outline-secondary text-white border-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL BAD BUNNY -->
+<div class="modal fade" id="bbModal" tabindex="-1" aria-label="Perfil Bad Bunny" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0" style="border-radius:16px;overflow:hidden;">
+            <div class="modal-header art-modal-header">
+                <div>
+                    <span class="art-badge">El Conejo Malo</span>
+                    <h4 class="modal-title mt-2" style="font-family:Georgia,serif;">Bad Bunny</h4>
+                    <small style="color:#aaa;font-size:12px;">10 mar 1994 · Almirante Sur, Puerto Rico</small>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body art-modal-body">
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <img src="https://www.latercera.com/resizer/v2/FULA7K2RAJGMVP4QI544FXOI64.jpeg?auth=8f13eead5b36bca7eb54d119453779ac70e86fce1e69873aa7e39f5baaee1347&smart=true&width=800&height=618&quality=70" class="art-img-modal" alt="Bad Bunny">
+                    </div>
+                    <div class="col-md-7">
+                        <p class="art-section-title">Biografía</p>
+                        <p style="font-size:14px;line-height:1.7;color:#ccc;">Benito Antonio Martínez Ocasio empezó subiendo canciones a SoundCloud mientras trabajaba como empacador en un supermercado. Su estilo rompe las normas del reggaetón fusionándolo con trap, rock, bachata y cumbia. Fue el artista <strong style="color:#fb923c;">más escuchado del mundo en Spotify</strong> durante tres años consecutivos (2020, 2021 y 2022).</p>
+                        <div class="row g-2 mt-1">
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">3x</div><div class="art-stat-label">Nº1 Spotify</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">$373M</div><div class="art-stat-label">World's Hottest Tour</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">6</div><div class="art-stat-label">Álbumes estudio</div></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Discografía destacada</p>
+                    <span class="art-pill">🎵 X 100pre (2018)</span>
+                    <span class="art-pill">🎵 YHLQMDLG (2020)</span>
+                    <span class="art-pill">🎵 El Último Tour Del Mundo (2020)</span>
+                    <span class="art-pill">🎵 Un Verano Sin Ti (2022)</span>
+                    <span class="art-pill">🎵 Nadie Sabe Lo Que Va a Pasar Mañana (2023)</span>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Legado</p>
+                    <p style="font-size:14px;line-height:1.7;color:#ccc;">Bad Bunny ha llevado el reggaetón y la música urbana latina al centro de la industria global. Es referente cultural que desafía estereotipos de género en la moda y promueve activamente causas sociales de Puerto Rico. Su impacto trasciende la música.</p>
+                </div>
+            </div>
+            <div class="modal-footer art-modal-footer">
+                <a href="https://es.wikipedia.org/wiki/Bad_Bunny" target="_blank" rel="noopener" class="btn btn-sm" style="background:#fb923c;color:#000;font-weight:bold;">Ver en Wikipedia</a>
+                <button type="button" class="btn btn-sm btn-outline-secondary text-white border-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL ROSALÍA -->
+<div class="modal fade" id="rosModal" tabindex="-1" aria-label="Perfil Rosalía" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0" style="border-radius:16px;overflow:hidden;">
+            <div class="modal-header art-modal-header">
+                <div>
+                    <span class="art-badge">Motomami</span>
+                    <h4 class="modal-title mt-2" style="font-family:Georgia,serif;">Rosalía</h4>
+                    <small style="color:#aaa;font-size:12px;">25 sep 1992 · Sant Esteve Sesrovires, Barcelona, España</small>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body art-modal-body">
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <img src="https://imagenes.elpais.com/resizer/v2/TJBNWI7GL5P7TOXUKKP77AJD4M.jpg?auth=7e042c56a05463e601fe10bc4dba896074f00e4dc58baeb5d06e28064214139c&width=1200" class="art-img-modal" alt="Rosalía">
+                    </div>
+                    <div class="col-md-7">
+                        <p class="art-section-title">Biografía</p>
+                        <p style="font-size:14px;line-height:1.7;color:#ccc;">Rosalía Vila Tobella estudió flamenco en la Escola Superior de Música de Catalunya. Con <strong style="color:#f43f5e;">El Mal Querer</strong> (2018) ganó el Grammy Latino al Álbum del Año y revolucionó la música en español. Su disco <em>MOTOMAMI</em> (2022) fue elegido mejor álbum del año por decenas de publicaciones internacionales.</p>
+                        <div class="row g-2 mt-1">
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">8</div><div class="art-stat-label">Grammy Latinos</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">3</div><div class="art-stat-label">Grammy EE.UU.</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">3</div><div class="art-stat-label">Álbumes estudio</div></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Discografía destacada</p>
+                    <span class="art-pill">🎵 Los Ángeles (2017)</span>
+                    <span class="art-pill">🎵 El Mal Querer (2018)</span>
+                    <span class="art-pill">🎵 MOTOMAMI (2022)</span>
+                    <span class="art-pill">🎵 Con Altura ft. J Balvin (2019)</span>
+                    <span class="art-pill">🎵 Chicken Teriyaki (2022)</span>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Legado</p>
+                    <p style="font-size:14px;line-height:1.7;color:#ccc;">Rosalía es la artista española con mayor proyección internacional de su generación. Ha fusionado el flamenco más puro con el trap, reggaetón y pop experimental. Colaboraciones con Travis Scott, Billie Eilish y Bad Bunny consolidan su posición en la élite global de la música.</p>
+                </div>
+            </div>
+            <div class="modal-footer art-modal-footer">
+                <a href="https://es.wikipedia.org/wiki/Rosal%C3%ADa" target="_blank" rel="noopener" class="btn btn-sm" style="background:#f43f5e;color:#fff;font-weight:bold;">Ver en Wikipedia</a>
+                <button type="button" class="btn btn-sm btn-outline-secondary text-white border-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DADDY YANKEE -->
+<div class="modal fade" id="dyModal" tabindex="-1" aria-label="Perfil Daddy Yankee" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0" style="border-radius:16px;overflow:hidden;">
+            <div class="modal-header art-modal-header">
+                <div>
+                    <span class="art-badge">El Big Boss</span>
+                    <h4 class="modal-title mt-2" style="font-family:Georgia,serif;">Daddy Yankee</h4>
+                    <small style="color:#aaa;font-size:12px;">3 feb 1977 · San Juan, Puerto Rico</small>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body art-modal-body">
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Daddy_Yankee_at_the_2019_Latin_Grammy_Awards_%28cropped%29.jpg/800px-Daddy_Yankee_at_the_2019_Latin_Grammy_Awards_%28cropped%29.jpg" class="art-img-modal" alt="Daddy Yankee">
+                    </div>
+                    <div class="col-md-7">
+                        <p class="art-section-title">Biografía</p>
+                        <p style="font-size:14px;line-height:1.7;color:#ccc;">Ramón Luis Ayala Rodríguez, conocido como <strong style="color:#facc15;">Daddy Yankee</strong>, es considerado el padre y embajador mundial del reggaetón. Su sencillo <em>Gasolina</em> (2004) fue el primero del género en sonar en radios internacionales. En 2017, <em>Despacito</em> junto a Luis Fonsi se convirtió en el video más visto de YouTube con más de 8 mil millones de reproducciones. Se retiró en 2022 con una gira de despedida histórica.</p>
+                        <div class="row g-2 mt-1">
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">8B+</div><div class="art-stat-label">Views Despacito</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">5</div><div class="art-stat-label">Grammy Latinos</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">2022</div><div class="art-stat-label">Año retiro</div></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Discografía destacada</p>
+                    <span class="art-pill">🎵 El Cartel (2005)</span>
+                    <span class="art-pill">🎵 Barrio Fino (2004)</span>
+                    <span class="art-pill">🎵 Mundial (2010)</span>
+                    <span class="art-pill">🎵 Legendaddy (2022)</span>
+                    <span class="art-pill">🎵 Despacito ft. Luis Fonsi (2017)</span>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Legado</p>
+                    <p style="font-size:14px;line-height:1.7;color:#ccc;">Daddy Yankee puso al reggaetón en el mapa mundial. Es el artista que más ha impulsado el género urbano latino a nivel global y fue el primero en demostrar que la música en español podía dominar las listas de todo el mundo.</p>
+                </div>
+            </div>
+            <div class="modal-footer art-modal-footer">
+                <a href="https://es.wikipedia.org/wiki/Daddy_Yankee" target="_blank" rel="noopener" class="btn btn-sm" style="background:#facc15;color:#000;font-weight:bold;">Ver en Wikipedia</a>
+                <button type="button" class="btn btn-sm btn-outline-secondary text-white border-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL BRUNO MARS -->
+<div class="modal fade" id="bmModal" tabindex="-1" aria-label="Perfil Bruno Mars" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0" style="border-radius:16px;overflow:hidden;">
+            <div class="modal-header art-modal-header">
+                <div>
+                    <span class="art-badge">Mr. Worldwide Pop</span>
+                    <h4 class="modal-title mt-2" style="font-family:Georgia,serif;">Bruno Mars</h4>
+                    <small style="color:#aaa;font-size:12px;">8 oct 1985 · Honolulu, Hawái, EE.UU.</small>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body art-modal-body">
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Bruno_Mars_at_the_2016_American_Music_Awards_%28cropped%29.jpg/800px-Bruno_Mars_at_the_2016_American_Music_Awards_%28cropped%29.jpg" class="art-img-modal" alt="Bruno Mars">
+                    </div>
+                    <div class="col-md-7">
+                        <p class="art-section-title">Biografía</p>
+                        <p style="font-size:14px;line-height:1.7;color:#ccc;">Peter Gene Hernandez, conocido como <strong style="color:#38bdf8;">Bruno Mars</strong>, es un artista total: cantante, compositor, bailarín y productor. Nació en Honolulu en una familia de músicos y comenzó a actuar desde los 4 años. Su álbum <em>24K Magic</em> (2016) ganó los 7 Grammy a los que fue nominado, incluyendo Álbum del Año. Es conocido por su espectacular mezcla de pop, funk, R&amp;B y soul.</p>
+                        <div class="row g-2 mt-1">
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">15</div><div class="art-stat-label">Grammy</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">130M+</div><div class="art-stat-label">Discos vendidos</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">7/7</div><div class="art-stat-label">Grammy 24K Magic</div></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Discografía destacada</p>
+                    <span class="art-pill">🎵 Doo-Wops &amp; Hooligans (2010)</span>
+                    <span class="art-pill">🎵 Unorthodox Jukebox (2012)</span>
+                    <span class="art-pill">🎵 24K Magic (2016)</span>
+                    <span class="art-pill">🎵 An Evening with Silk Sonic (2021)</span>
+                    <span class="art-pill">🎵 Uptown Funk ft. Mark Ronson (2014)</span>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Legado</p>
+                    <p style="font-size:14px;line-height:1.7;color:#ccc;">Bruno Mars es considerado uno de los mejores entertainers de su generación. Sus actuaciones en vivo son espectáculos de nivel histórico. Junto a Anderson .Paak formó el dúo <em>Silk Sonic</em>, una carta de amor al soul de los años 70. <em>Uptown Funk</em> fue el sencillo más vendido de 2015 en el mundo.</p>
+                </div>
+            </div>
+            <div class="modal-footer art-modal-footer">
+                <a href="https://es.wikipedia.org/wiki/Bruno_Mars" target="_blank" rel="noopener" class="btn btn-sm" style="background:#38bdf8;color:#000;font-weight:bold;">Ver en Wikipedia</a>
+                <button type="button" class="btn btn-sm btn-outline-secondary text-white border-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL RICKY MARTIN -->
+<div class="modal fade" id="rmModal" tabindex="-1" aria-label="Perfil Ricky Martin" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0" style="border-radius:16px;overflow:hidden;">
+            <div class="modal-header art-modal-header">
+                <div>
+                    <span class="art-badge">El Rey del Pop Latino</span>
+                    <h4 class="modal-title mt-2" style="font-family:Georgia,serif;">Ricky Martin</h4>
+                    <small style="color:#aaa;font-size:12px;">24 dic 1971 · San Juan, Puerto Rico</small>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body art-modal-body">
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Ricky_Martin_2013_%28cropped%29.jpg/800px-Ricky_Martin_2013_%28cropped%29.jpg" class="art-img-modal" alt="Ricky Martin">
+                    </div>
+                    <div class="col-md-7">
+                        <p class="art-section-title">Biografía</p>
+                        <p style="font-size:14px;line-height:1.7;color:#ccc;">Enrique Martín Morales comenzó su carrera a los 12 años en el grupo <em>Menudo</em>. Lanzó su álbum homónimo en inglés en 1999 y se convirtió en la primera gran estrella del pop latino en conquistar el mercado anglosajón. <strong style="color:#4ade80;">Livin' la Vida Loca</strong> fue el mayor debut en 20 años en la lista Billboard Hot 100. Ha vendido más de 70 millones de discos.</p>
+                        <div class="row g-2 mt-1">
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">2</div><div class="art-stat-label">Grammy</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">70M+</div><div class="art-stat-label">Discos vendidos</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">35+</div><div class="art-stat-label">Años carrera</div></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Discografía destacada</p>
+                    <span class="art-pill">🎵 A Medio Vivir (1995)</span>
+                    <span class="art-pill">🎵 Vuelve (1998)</span>
+                    <span class="art-pill">🎵 Ricky Martin (1999)</span>
+                    <span class="art-pill">🎵 Sound Loaded (2000)</span>
+                    <span class="art-pill">🎵 Play (2003)</span>
+                    <span class="art-pill">🎵 Pausa (2020)</span>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Legado</p>
+                    <p style="font-size:14px;line-height:1.7;color:#ccc;">Ricky Martin fue la puerta de entrada del pop latino al mercado anglosajón. Su actuación en los Grammy de 1999 es considerada uno de los momentos más icónicos de la historia de los premios y desató la llamada "explosión latina" en la música pop internacional.</p>
+                </div>
+            </div>
+            <div class="modal-footer art-modal-footer">
+                <a href="https://es.wikipedia.org/wiki/Ricky_Martin" target="_blank" rel="noopener" class="btn btn-sm" style="background:#4ade80;color:#000;font-weight:bold;">Ver en Wikipedia</a>
+                <button type="button" class="btn btn-sm btn-outline-secondary text-white border-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DON OMAR -->
+<div class="modal fade" id="doModal" tabindex="-1" aria-label="Perfil Don Omar" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0" style="border-radius:16px;overflow:hidden;">
+            <div class="modal-header art-modal-header">
+                <div>
+                    <span class="art-badge">El Rey del Reggaetón</span>
+                    <h4 class="modal-title mt-2" style="font-family:Georgia,serif;">Don Omar</h4>
+                    <small style="color:#aaa;font-size:12px;">10 feb 1981 · San Juan, Puerto Rico</small>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body art-modal-body">
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Don_Omar_2011.jpg/800px-Don_Omar_2011.jpg" class="art-img-modal" alt="Don Omar">
+                    </div>
+                    <div class="col-md-7">
+                        <p class="art-section-title">Biografía</p>
+                        <p style="font-size:14px;line-height:1.7;color:#ccc;">William Omar Landrón Rivera es uno de los artistas más influyentes del reggaetón. Su álbum debut <em>The Last Don</em> (2003) es considerado un clásico del género. <strong style="color:#a78bfa;">Danza Kuduro</strong> (2011) junto a Lucenzo se convirtió en un himno mundial con más de 2 mil millones de reproducciones. También es conocido por su papel en la saga <em>Fast &amp; Furious</em>.</p>
+                        <div class="row g-2 mt-1">
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">2B+</div><div class="art-stat-label">Views Danza Kuduro</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">4</div><div class="art-stat-label">Grammy Latinos</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">20+</div><div class="art-stat-label">Años carrera</div></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Discografía destacada</p>
+                    <span class="art-pill">🎵 The Last Don (2003)</span>
+                    <span class="art-pill">🎵 King of Kings (2006)</span>
+                    <span class="art-pill">🎵 iDon (2009)</span>
+                    <span class="art-pill">🎵 Meet the Orphans (2010)</span>
+                    <span class="art-pill">🎵 The Last Don 2 (2015)</span>
+                    <span class="art-pill">🎵 Danza Kuduro ft. Lucenzo (2011)</span>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Legado</p>
+                    <p style="font-size:14px;line-height:1.7;color:#ccc;">Don Omar es uno de los pilares fundamentales del reggaetón. Su rivalidad artística con Daddy Yankee impulsó el género a nuevas alturas. Actor y músico, su presencia trasciende la industria musical hacia el cine y la cultura popular latina global.</p>
+                </div>
+            </div>
+            <div class="modal-footer art-modal-footer">
+                <a href="https://es.wikipedia.org/wiki/Don_Omar" target="_blank" rel="noopener" class="btn btn-sm" style="background:#a78bfa;color:#000;font-weight:bold;">Ver en Wikipedia</a>
+                <button type="button" class="btn btn-sm btn-outline-secondary text-white border-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL JESSE & JOY -->
+<div class="modal fade" id="jjModal" tabindex="-1" aria-label="Perfil Jesse y Joy" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0" style="border-radius:16px;overflow:hidden;">
+            <div class="modal-header art-modal-header">
+                <div>
+                    <span class="art-badge">Dúo hermanos</span>
+                    <h4 class="modal-title mt-2" style="font-family:Georgia,serif;">Jesse &amp; Joy</h4>
+                    <small style="color:#aaa;font-size:12px;">Jesse: 1987 · Joy: 1989 · Ciudad de México, México</small>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body art-modal-body">
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Jesse_%26_Joy_in_2019.jpg/800px-Jesse_%26_Joy_in_2019.jpg" class="art-img-modal" alt="Jesse &amp; Joy">
+                    </div>
+                    <div class="col-md-7">
+                        <p class="art-section-title">Biografía</p>
+                        <p style="font-size:14px;line-height:1.7;color:#ccc;">Jesse Huerta y Joy Huerta son un dúo de hermanos mexicano-estadounidenses que mezclan pop, folk y soul con letras profundas en español. Saltaron a la fama con <strong style="color:#fb7185;">¡Corre!</strong> (2011) y se consolidaron como referentes del pop alternativo latino. Son reconocidos por su activismo y defensa de los derechos de la comunidad LGBTQ+.</p>
+                        <div class="row g-2 mt-1">
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">5</div><div class="art-stat-label">Grammy Latinos</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">6</div><div class="art-stat-label">Álbumes estudio</div></div></div>
+                            <div class="col-4"><div class="art-stat"><div class="art-stat-value">15+</div><div class="art-stat-label">Años carrera</div></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Discografía destacada</p>
+                    <span class="art-pill">🎵 Un Besito Más (2007)</span>
+                    <span class="art-pill">🎵 ¡Corre! (2011)</span>
+                    <span class="art-pill">🎵 Con Quien Se Queda El Perro (2013)</span>
+                    <span class="art-pill">🎵 Espacio Sideral (2019)</span>
+                    <span class="art-pill">🎵 Aire (2022)</span>
+                </div>
+                <div class="mt-3">
+                    <p class="art-section-title">Legado</p>
+                    <p style="font-size:14px;line-height:1.7;color:#ccc;">Jesse &amp; Joy son una de las propuestas más originales y auténticas del pop en español. Su música combina melodías pegadizas con letras cargadas de emoción. Como pareja de hermanos en el escenario, su química es única e inigualable en la industria musical latina.</p>
+                </div>
+            </div>
+            <div class="modal-footer art-modal-footer">
+                <a href="https://es.wikipedia.org/wiki/Jesse_%26_Joy" target="_blank" rel="noopener" class="btn btn-sm" style="background:#fb7185;color:#fff;font-weight:bold;">Ver en Wikipedia</a>
+                <button type="button" class="btn btn-sm btn-outline-secondary text-white border-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     MODAL CONTACTO
+══════════════════════════════════════════════ -->
+<div class="modal fade" id="contactoModal" tabindex="-1" aria-label="Formulario de contacto" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width:460px;">
+        <div class="modal-content border-0">
+            <div class="modal-header" style="background:linear-gradient(135deg,#ff69b4,#ff8fab);border-bottom:none;padding:2rem 2rem 1.2rem;flex-direction:column;align-items:flex-start;">
+                <button type="button" class="btn-close btn-close-white align-self-end mb-2" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:10px;" aria-hidden="true">🎵</div>
+                <h4 class="modal-title" style="color:white;font-family:Georgia,serif;font-weight:bold;">¡Únete a Mundo Musical!</h4>
+                <p style="color:rgba(255,255,255,0.85);font-size:14px;margin:6px 0 0;">Regístrate y recibe novedades exclusivas de tus artistas favoritos.</p>
+            </div>
+            <div class="modal-body" style="background:#fff;padding:1.8rem 2rem;">
+                <div id="contacto-form">
+                    <div class="mb-3">
+                        <label for="contacto-nombre" style="font-size:13px;font-weight:600;color:#555;margin-bottom:6px;display:block;letter-spacing:0.5px;">NOMBRE</label>
+                        <input type="text" id="contacto-nombre" class="contact-input" placeholder="Tu nombre" autocomplete="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="contacto-email" style="font-size:13px;font-weight:600;color:#555;margin-bottom:6px;display:block;letter-spacing:0.5px;">CORREO ELECTRÓNICO</label>
+                        <input type="email" id="contacto-email" class="contact-input" placeholder="tucorreo@ejemplo.com" autocomplete="email">
+                    </div>
+                    <div class="mb-4">
+                        <p style="font-size:13px;font-weight:600;color:#555;margin-bottom:8px;letter-spacing:0.5px;">¿QUÉ TE INTERESA RECIBIR?</p>
+                        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                            <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:#666;cursor:pointer;"><input type="checkbox" checked> Novedades de artistas</label>
+                            <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:#666;cursor:pointer;"><input type="checkbox"> Próximos conciertos</label>
+                            <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:#666;cursor:pointer;"><input type="checkbox"> Nuevos lanzamientos</label>
+                            <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:#666;cursor:pointer;"><input type="checkbox"> Ofertas exclusivas</label>
+                        </div>
+                    </div>
+                    <div id="contacto-error" style="display:none;background:#ffe4e4;color:#c0392b;border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:12px;" role="alert">
+                        ⚠️ Por favor ingresa un correo válido.
+                    </div>
+                    <button class="contact-btn" onclick="enviarRegistro()">Registrarme ahora ✉️</button>
+                    <p style="font-size:11px;color:#aaa;text-align:center;margin-top:10px;">Sin spam. Puedes darte de baja cuando quieras.</p>
+                </div>
+                <div id="contacto-ok" style="display:none;text-align:center;padding:1.5rem 0;" aria-live="polite">
+                    <div style="font-size:56px;margin-bottom:12px;" aria-hidden="true">🎉</div>
+                    <h5 style="color:#ff69b4;font-weight:bold;margin-bottom:8px;">¡Registro exitoso!</h5>
+                    <p id="contacto-ok-msg" style="color:#666;font-size:14px;line-height:1.6;"></p>
+                    <button class="btn btn-sm mt-3" data-bs-dismiss="modal" style="background:#ff69b4;color:white;border:none;border-radius:8px;padding:8px 24px;font-weight:bold;">¡Genial, gracias! 🎵</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="site-footer" aria-label="Pie de página">
+    <div class="footer-grid">
+
+        <!-- Columna 1: Marca -->
+        <div class="footer-col">
+            <div class="footer-brand">🎵 Mundo Musical</div>
+            <p class="footer-tagline">Tu destino para descubrir los mejores talentos del pop y la música latina.</p>
+            <div class="footer-socials">
+                <a class="footer-social-btn" href="#" aria-label="Instagram de Mundo Musical">📸 Instagram</a>
+                <a class="footer-social-btn" href="#" aria-label="TikTok de Mundo Musical">🎵 TikTok</a>
+                <a class="footer-social-btn" href="#" aria-label="YouTube de Mundo Musical">▶️ YouTube</a>
+            </div>
+        </div>
+
+        <!-- Columna 2: Géneros -->
+        <div class="footer-col">
+            <h3>Géneros</h3>
+            <ul>
+                <li><a href="#" onclick="mostrarSeccion('cards');return false;">🎤 Pop Internacional</a></li>
+                <li><a href="#" onclick="mostrarSeccion('cards');return false;">🔥 Reggaetón</a></li>
+                <li><a href="#" onclick="mostrarSeccion('cards');return false;">💜 R&amp;B &amp; Soul</a></li>
+                <li><a href="#" onclick="mostrarSeccion('cards');return false;">🌹 Flamenco Urbano</a></li>
+                <li><a href="#" onclick="mostrarSeccion('cards');return false;">🎸 Pop Latino</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: Curiosidades -->
+        <div class="footer-col">
+            <h3>¿Sabías que…?</h3>
+            <p>🏆 Beyoncé tiene más Grammys que cualquier otro artista en la historia, con 32 premios.</p>
+            <p style="margin-top:8px;">🌍 Bad Bunny fue el artista más escuchado en Spotify 3 años seguidos cantando solo en español.</p>
+        </div>
+
+        <!-- Columna 4: Estadísticas -->
+        <div class="footer-col">
+            <h3>En números</h3>
+            <div class="footer-stats">
+                <div class="footer-stat-item">
+                    <span class="footer-stat-num">9</span>
+                    <span class="footer-stat-label">Artistas</span>
+                </div>
+                <div class="footer-stat-item">
+                    <span class="footer-stat-num">100+</span>
+                    <span class="footer-stat-label">Grammy acumulados</span>
+                </div>
+                <div class="footer-stat-item">
+                    <span class="footer-stat-num">1B+</span>
+                    <span class="footer-stat-label">Discos vendidos</span>
+                </div>
+                <div class="footer-stat-item">
+                    <span class="footer-stat-num">∞</span>
+                    <span class="footer-stat-label">Canciones épicas</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="footer-divider" aria-hidden="true">
+
+    <p class="footer-bottom">
+        © 2026 <strong>Mundo Musical</strong> — Hecho con 🎶 y mucho amor por la música &nbsp;|&nbsp;
+        Síguenos en RRSS <strong>@mundo.musical</strong> &nbsp;|&nbsp;
+        Diseñado con <strong>Bootstrap 5</strong> · HTML5 · CSS3 · JavaScript
+    </p>
+</footer>
+
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- JavaScript propio -->
+<script src="script.js"></script>
+
+</body>
+</html>
