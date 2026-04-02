@@ -126,5 +126,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalContacto) {
         modalContacto.addEventListener('hidden.bs.modal', resetContactoModal);
     }
-
 });
